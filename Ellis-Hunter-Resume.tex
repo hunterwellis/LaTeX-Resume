@@ -1,0 +1,266 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=1.0 cm, % seperation between body and page edge from the top
+    bottom=1.0 cm, % seperation between body and page edge from the bottom
+    left=1.5 cm, % seperation between body and page edge from the left
+    right=1.5 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 0, 0} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Hunter Ellis's Resume},
+    pdfauthor={Hunter Ellis},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+\usepackage{datetime}
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\pagenumbering{gobble} % no page numbering
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.2 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0 pt,
+        parsep=0 pt, 
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+    \noindent\huge{\textbf{Hunter Ellis}}\normalsize\hfill \hrefWithoutArrow{tel:+1-703-953-6963}{(703) 953-6963}\\ 
+    \noindent\large{\textbf{Electrical \& Computer Engineer}}\normalsize\hfill\hrefWithoutArrow{mailto:hunterellis@vt.edu}{hunterellis@vt.edu}
+    
+    \kern 3.0 pt%
+    \hrule
+    \kern 5.0 pt%
+    Engineer with an interest in control theory and embedded technology. \hfill \hrefWithoutArrow{https://github.com/hunterwellis}{{github.com/hunterwellis}}\\
+    \quad$\hookrightarrow$ Currently, working on my Master's Thesis in \href{https://coolautonomylab.github.io/team/}{{Dr.Thinh Doan's Research Group}}.\hfill\hrefWithoutArrow{https://ellishw.tech}{{ellishw.tech}}\\
+
+    \section{Skills}
+    \textbf{Languages: }C++, Python, MATLAB, Embedded C, LaTeX, Verilog \\
+    \kern 5.0 pt%
+    \textbf{Tools: }Simulink, Git, GNU/Linux, ROS2, Gazebo, PyTorch, OpenCV, SciKit-Learn, Make, CMake, LabView, Qt, KiCAD, \\
+           \quad\quad\quad\ FreeRTOS, Autodesk Inventor, SolidWorks, Rhino
+
+    \section{Education}
+    \begin{twocolentry}{{May 2025}\\\textit{Blacksburg, Virginia}}
+        \textbf{Master of Science in Computer Engineering}\\
+        Virginia Tech -- Focused on Control Theory\\ 
+        \quad\quad\textit{Advisers: \hrefWithoutArrow{https://coolautonomylab.github.io/members/thinh.html}{{Dr.Thinh Doan (UT Austin)}} and \hrefWithoutArrow{https://filebox.ece.vt.edu/~mhsiao/}{{Dr.Michael Hsaio (Virginia Tech)}}}\\
+    \end{twocolentry}
+    \kern 5.0 pt%
+    \begin{twocolentry}{{May 2024}\\\textit{Blacksburg, Virginia}}
+        \textbf{Bachelor of Science in Electrical \& Computer Engineering} (double major)\\
+        Virginia Tech -- Control Systems and Machine Learning
+    \end{twocolentry}
+    
+    \section{Experience}
+    \begin{twocolentry}{{Aug 2023 -- Present} \\\textit{Blacksburg, Virginia}}
+    \textbf{Reinforcement Learning Research | M.S. Thesis}\\
+        \textit{Virginia Tech \boldmath$\cdot$ Graduate Researcher}\\
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Undergraduate and graduate research developing neuro-symbolic algorithms
+                \item Developing and merging symbolic programming with deep RL for multi-task agents
+                \item Building ROS2 workspaces and packages for training custom RL agents
+                \item Designed and implemented symbolic RL methods to beat Atari games
+                \item Simulated drone flight plans utilizing ROS2, Ardupilot, and Gazebo
+            \end{highlights}
+        \end{onecolentry}
+    \end{twocolentry}
+    \kern 5.0 pt%
+\begin{twocolentry}{{May 2024 -- Aug 2024} \\\textit{Huntsville, Alabama \\ (Merrit Island, Florida)}}
+    \textbf{Thrust Vector Control | Mars Ascent Vehicle (MAV)}\\
+        \textit{Jacobs Space Exploration Group \boldmath$\cdot$ TVC Intern}\\
+        \begin{onecolentry}
+            \begin{highlights}
+            \item TVC for Mars Sample Return Mission and EUS at the NASA Marshall Space Flight Center
+            \item Developed software and hardware systems for NASA’s Active Inertial Load Simulator
+            \item Characterized dynamic systems for MAV’s TVC test stand using Python and MATLAB. 
+            \item Derived a non-linear model and control architecture for a load simulating actuator 
+            \item Traveled to Kennedy Space Center for the Space Launch System’s (Booster) TVC Testing
+            \end{highlights}
+        \end{onecolentry}
+    \end{twocolentry}
+    \kern 5.0 pt%
+    \begin{twocolentry}{{June 2023 -- Aug 2023}\\ \textit{Grenoble, France}}
+        \textbf{Control Systems Research | Microgrid Inverters}\\
+        \textit{Grenoble Electrical Engineering Laboratory \boldmath$\cdot$ Research Intern}\\
+        \begin{onecolentry}
+            \begin{highlights}
+            \item Researched "microgrids" -- designed to avoid infastructure problems on the French Grid
+            \item Simulated neutral point balancing control methods using 4-leg inverters in Simulink
+            \item Investigated NPC inverters with unbalanced network conditions for islanding events
+            \end{highlights}
+        \end{onecolentry}
+    \end{twocolentry}
+    \kern 5.0 pt%
+    \begin{twocolentry}{{June 2022 -- Aug 2022}\\\textit{West Bethesda, Maryland}}
+        \textbf{Naval Concept Design Research | Hospital Sea Trains}\\
+        \textit{Naval Surface Warfare Center (Carderock Division) \boldmath$\cdot$ Concept Research Intern}\\
+        \begin{onecolentry}
+            \begin{highlights}
+            \item Developed concept hospital sea-train design at the Center for Innovative Ship Design
+            \item Estimated fuel consumption and electrical power loads of concept sea-trains 
+            \end{highlights}
+        \end{onecolentry}
+    \end{twocolentry}
+    \kern 5.0 pt%
+    \begin{twocolentry}{{Aug 2024 -- Present} \\\textit{Blacksburg, Virginia}}
+        \textbf{Graduate Teaching Assistant | Continuous \& Discrete Systems}\\
+        \textit{Virginia Tech \boldmath$\cdot$ Teaching Assistant}\\
+        \begin{onecolentry}
+            \begin{highlights}
+            \item Assisting ECE Professors in teaching fundamental concepts in linear systems theory
+            \item Holding office hours and preparing recitation sessions for students 
+            \end{highlights}
+        \end{onecolentry}
+    \end{twocolentry}
+    \section{Projects}
+    \begin{twocolentry}{{Dec 2023 -- Present}\\}
+        \textbf{FOC Stepper Motor} (\hrefWithoutArrow{https://github.com/hunterwellis}{github.com/hunterwellis})
+        \begin{onecolentry}
+            \begin{highlights}
+            \item Widely applicable stepper motor driver using FOC and a magnetic encoder for feedback
+            \item 4-layer PCB mounts to the back of stepper with CAN and power connection
+            \end{highlights}
+        \end{onecolentry}
+    \end{twocolentry}
+    \kern 5.0 pt%
+    \begin{twocolentry}{{Aug 2023 -- May 2024}\\}
+    \textbf{Computer Vision | OCR Capstone Project }(\hrefWithoutArrow{https://ece.vt.edu/content/dam/ece_vt_edu/S24-ECE-MDE-Brochure.pdf}{capstone\_brochure.pdf})
+        \begin{onecolentry}
+            \begin{highlights}
+            \item IOS application capable of detecting coins of interest/value
+            \item Trained OCR and ResNet-50 models on dataset of real and augmented coin images
+            \end{highlights}
+        \end{onecolentry}
+    \end{twocolentry}
+    \kern 5.0 pt%
+    \begin{twocolentry}{{Oct 2020 -- Mar 2023}\\}
+        \textbf{Design Teams | Solar Car \& Human Powered Submarine }(\hrefWithoutArrow{https://solarcaratvt.org}{solarcaratvt.org})
+        \begin{onecolentry}
+            \begin{highlights}
+            \item Overall E/E architecture of the Solar Car
+            \item Single board computer and LCD to display relevant data to the submarine pilot 
+            \end{highlights}
+        \end{onecolentry}
+    \end{twocolentry}
+\end{document}
