@@ -1,0 +1,49 @@
+\documentclass[11pt,a4paper,roman]{moderncv}      
+\usepackage[english]{babel}
+
+\moderncvstyle{classic}                            
+\moderncvcolor{black}                            
+
+\usepackage[utf8]{inputenc}                     
+\usepackage{lipsum}
+
+\usepackage[scale=0.80]{geometry}
+
+% macros
+\newcommand\company{[Company]}
+\newcommand\companycontact{[Company Contact]}
+\newcommand\position{[Position]}
+
+\name{Hunter}{Ellis}
+\title{\company\ (\position)}
+\email{hunterellis@vt.edu}
+\phone[mobile]{+1 (703) 953-6963}               
+\address{Herndon, Virginia}
+\homepage{ellishw.tech}
+
+\begin{document}
+
+\recipient{To}{\companycontact,\newline\company}
+\date{\today}
+\opening{\textbf{Application For \position}}
+\closing{Very Respectfully, \vspace{-1em}}
+\makelettertitle
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+Dear \companycontact,
+
+\quad \lipsum[1]
+
+\quad \lipsum[2] 
+
+\quad \lipsum[3]
+
+\quad \lipsum[4]
+
+Thank you for your consideration.
+
+
+\makeletterclosing
+
+\end{document}
+
