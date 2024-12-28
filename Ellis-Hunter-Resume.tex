@@ -1,12 +1,12 @@
-\documentclass[10pt, letterpaper]{article}
+\documentclass[9pt, letterpaper]{extarticle}
 
 % Packages:
 \usepackage[
     ignoreheadfoot, % set margins without considering header and footer
     top=1.0 cm, % seperation between body and page edge from the top
     bottom=1.0 cm, % seperation between body and page edge from the bottom
-    left=1.5 cm, % seperation between body and page edge from the left
-    right=1.5 cm, % seperation between body and page edge from the right
+    left=1.0 cm, % seperation between body and page edge from the left
+    right=1.0 cm, % seperation between body and page edge from the right
     footskip=1.0 cm, % seperation between body and footer
     % showframe % for debugging 
 ]{geometry} % for adjusting page geometry
@@ -56,17 +56,17 @@
 \setlength{\columnsep}{0.15cm} % set column seperation
 \pagenumbering{gobble} % no page numbering
 
-\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\Large}{}{0pt}{}[\vspace{1pt}\titlerule]
 
 \titlespacing{\section}{
     % left space:
     -1pt
 }{
     % top space:
-    0.2 cm
+    0.15 cm
 }{
     % bottom space:
-    0.2 cm
+    0.15 cm
 } % section title spacing
 
 \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
@@ -76,7 +76,7 @@
         parsep=0 pt, 
         partopsep=0pt,
         itemsep=0pt,
-        leftmargin=0 cm + 10pt
+        leftmargin=0.25 cm + 10pt
     ]
 }{
     \end{itemize}
@@ -119,10 +119,12 @@
 \newenvironment{threecolentry}[3][]{
     \onecolentry
     \def\thirdColumn{#3}
-    \setcolumnwidth{, \fill, 4.5 cm}
+    \setcolumnwidth{, \fill, \fill, \fill}
     \begin{paracol}{3}
     {\raggedright #2} \switchcolumn
+    \begin{center}  % center the middle column content
 }{
+    \end{center}
     \switchcolumn \raggedleft \thirdColumn
     \end{paracol}
     \endonecolentry
@@ -144,20 +146,32 @@
     }
     \newsavebox\ANDbox
     \sbox\ANDbox{$|$}
-    \noindent\huge{\textbf{Hunter Ellis}}\normalsize\hfill \hrefWithoutArrow{tel:+1-703-953-6963}{(703) 953-6963}\\ 
-    \noindent\large{\textbf{Electrical \& Computer Engineer}}\normalsize\hfill\hrefWithoutArrow{mailto:hunterellis@vt.edu}{hunterellis@vt.edu}
-    
-    \kern 3.0 pt%
+    \begin{threecolentry}
+        {
+            Blacksburg, Virginia\\
+            \hrefWithoutArrow{tel:+1-703-953-6963}{(703) 953-6963}\\
+            \hrefWithoutArrow{mailto:hunterellis@vt.edu}{hunterellis@vt.edu}
+        }
+        {
+            \hrefWithoutArrow{https://ellishw.tech}{{ellishw.tech}}\\
+            \hrefWithoutArrow{https://github.com/hunterwellis}{{github.com/hunterwellis}}\\
+            \hrefWithoutArrow{https://www.linkedin.com/in/ellishw/}{linkedin.com/in/ellishw}
+        }
+        {
+            \Huge\textbf{{Hunter Ellis}}\\
+            \kern 3.0 pt%
+            \Large{\textbf{Electrical \& Computer Engineer}}
+        }
+    \end{threecolentry}
     \hrule
     \kern 5.0 pt%
-    Engineer with an interest in control theory and embedded systems. \hfill \hrefWithoutArrow{https://github.com/hunterwellis}{{github.com/hunterwellis}}\\
-    $\hookrightarrow$ Currently working on my thesis in an Accelerated Master's Program at Virginia Tech.\hfill\hrefWithoutArrow{https://ellishw.tech}{{ellishw.tech}}\\
-
+    Electrical/Computer Engineer with interests in control systems and signal processing.\\
+    $\hookrightarrow$ Currently working on my master's thesis in an accelerated program at Virginia Tech.
     \section{Skills}
     \textbf{Software: }C/C++, Python, MATLAB, GNU/Linux, Simulink, Git, ROS2, Gazebo, Make, CMake, Labview, Qt,\\
     \quad\quad\quad\quad\ \ \ PyTorch, OpenCV, LaTeX, Verilog, FreeRTOS, Autodesk Inventor, SolidWorks, Rhino\\
     \kern 5.0 pt%
-    \textbf{Hardware: }SMD Soldering, PCB Design and Assembly,  Oscilloscope, Multimeter, 3D-Printing\\ 
+    \textbf{Hardware: }PCB Design and Assembly, Breadboarding, Computer Architecture, Oscilloscope, Multimeter, 3D-Printing\\ 
     \section{Education}
     \begin{twocolentry}{{May 2025}\\\textit{Blacksburg, Virginia}}
         \textbf{Master of Science in Computer Engineering}\\
@@ -170,42 +184,36 @@
         Virginia Tech -- Control Systems and Machine Learning -- GPA: 3.7
     \end{twocolentry}
     
-    \section{Experience}
+    \section{Technical Experience}
     \begin{twocolentry}{{Aug 2023 -- Present} \\\textit{Blacksburg, Virginia}}
         \textbf{Control Theory (Reinforcement Learning) Research | M.S. Thesis}\\
         \textbf{\textit{Virginia Tech \boldmath$\cdot$ Graduate Researcher}}\\
         \begin{onecolentry}
             \begin{highlights}
-                \item Undergraduate and graduate research developing neuro-symbolic algorithms
-                \item Developing robotic hardware and software tools for testing algorithms
-                \item Working on merging symbolic programming with deep RL for multi-task agents
-                \item Building ROS2 workspaces and packages for training custom RL agents
-                \item Designed and implemented RL methods to beat Atari games
+                \item Undergraduate and graduate research developing neuro-symbolic algorithms with \hrefWithoutArrow{https://coolautonomylab.github.io/}{The C.O.O.L Autonomy Lab at The University of Texas at Austin.}
+                \item Developing hardware for a 6-axis robot arm and software for a ROS2 simulation environment used to test custom Reinforcement Learning algorithms.
             \end{highlights}
         \end{onecolentry}
     \end{twocolentry}
-    \kern 5.0 pt%
-    \begin{twocolentry}{{Aug 2024 -- Present} \\\textit{Blacksburg, Virginia}}
-        \textbf{Graduate Teaching Assistant | Continuous \& Discrete Systems}\\
-        \textbf{\textit{Virginia Tech \boldmath$\cdot$ Teaching Assistant}}\\
+    \begin{twocolentry}{{Aug 2024 -- Dec 2024} \\\textit{Blacksburg, Virginia}}
+        \textbf{\textit{\hrefWithoutArrow{https://ece.vt.edu/undergrad/courses/3704.html}{Continuous and Discrete Systems} \boldmath$\cdot$ Graduate Teaching Assistant}}\\
         \begin{onecolentry}
             \begin{highlights}
-            \item Assisting Professors in teaching fundamental concepts in linear systems theory and DSP
-            \item Holding office hours and preparing recitation sessions for students 
+            \item Taught fundamental concepts in linear systems theory and digital signal processing, including Laplace Transforms, Z-Transforms, system stability, and FIR \& IIR filter design.
+            \item Assisted with hands-on projects to illustrate and integrate analog and digital filter design and application on breadboards and TI MSP432 development boards.
             \end{highlights}
         \end{onecolentry}
     \end{twocolentry}
     \kern 5.0 pt%
 \begin{twocolentry}{{May 2024 -- Aug 2024} \\\textit{Huntsville, Alabama \\ (Merrit Island, Florida)}}
-    \textbf{Thrust Vector Control | Mars Ascent Vehicle (MAV)}\\
+    \textbf{Thrust Vector Control (TVC) | Mars Ascent Vehicle (MAV)}\\
     \textbf{\textit{Jacobs Space Exploration Group \boldmath$\cdot$ TVC Intern}}\\
         \begin{onecolentry}
             \begin{highlights}
-            \item TVC for Mars Sample Return Mission and EUS at the NASA Marshall Space Flight Center
-            \item Developed software and hardware systems for NASA’s Active Inertial Load Simulator
-            \item Characterized dynamic systems for MAV’s TVC test stand using Python and MATLAB 
-            \item Derived a non-linear model and control architecture for a load simulating actuator 
-            \item Traveled to Kennedy Space Center for the Space Launch System’s (Booster) TVC Testing
+            \item Developed thrust vector control testing hardware and software as part of NASA's Active Inertial Load Simuator at the Marshall Space Flight Center.
+            \item Characterized and created a model of an electro-mechanical actuator including internal viscous and (non-linear) coloumb friction components.
+            \item Derived control systems for load simulating actuators -- used to simulate external loads placed on the Mars Ascent Vehicle's thrust vector control actuators during flight. 
+            \item Designed and integrated a 3\textsuperscript{rd} order IIR filter to remove high frequency noise from a load cell and linear variable differential transformer (LVDT).
             \end{highlights}
         \end{onecolentry}
     \end{twocolentry}
@@ -215,9 +223,8 @@
         \textbf{\textit{Grenoble Electrical Engineering Laboratory \boldmath$\cdot$ Research Intern}}\\
         \begin{onecolentry}
             \begin{highlights}
-            \item Researched "microgrids" -- designed to avoid infastructure problems on the French Grid
-            \item Simulated neutral point balancing control methods using 4-leg inverters in Simulink
-            \item Investigated NPC inverters with unbalanced network conditions for islanding events
+            \item Researched inverter control systems -- designed to be robust to islanding events and avoid future infastructure problems on the French power grid.
+            \item Simulated neutral point capacitive and balancing control methods using 4-leg inverters in Simulink. Tested PI control, PR control, Clarke and Park Transforms with HIL simulations.
             \end{highlights}
         \end{onecolentry}
     \end{twocolentry}
@@ -227,8 +234,7 @@
         \textbf{\textit{Naval Surface Warfare Center (Carderock Division) \boldmath$\cdot$ Concept Research Intern}}\\
         \begin{onecolentry}
             \begin{highlights}
-            \item Developed concept hospital sea-train design at the Center for Innovation in Ship Design
-            \item Estimated fuel consumption and electrical power loads of concept sea-trains 
+            \item Developed concept hospital sea-train designs at the Center for Innovation in Ship Design and estimated fuel consumption and electrical power loads of concept sea-trains.
             \end{highlights}
         \end{onecolentry}
     \end{twocolentry}
