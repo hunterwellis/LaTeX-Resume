@@ -5,8 +5,8 @@
     ignoreheadfoot, % set margins without considering header and footer
     top=1.0 cm, % seperation between body and page edge from the top
     bottom=1.0 cm, % seperation between body and page edge from the bottom
-    left=1.0 cm, % seperation between body and page edge from the left
-    right=1.0 cm, % seperation between body and page edge from the right
+    left=1.2 cm, % seperation between body and page edge from the left
+    right=1.2 cm, % seperation between body and page edge from the right
     footskip=1.0 cm, % seperation between body and footer
     % showframe % for debugging 
 ]{geometry} % for adjusting page geometry
@@ -160,28 +160,22 @@
         {
             \Huge\textbf{{Hunter Ellis}}\\
             \kern 3.0 pt%
-            \Large{\textbf{Electrical \& Computer Engineer}}
+            \LARGE{\textbf{Electrical \& Computer Engineer}}
         }
     \end{threecolentry}
     \hrule
     \kern 5.0 pt%
-    Electrical/Computer Engineer with interests in control systems and signal processing.\\
-    $\hookrightarrow$ Currently working on my master's thesis in an accelerated program at Virginia Tech.
-    \section{Skills}
-    \textbf{Software: }C/C++, Python, MATLAB, GNU/Linux, Simulink, Git, ROS2, Gazebo, Make, CMake, Labview, Qt,\\
-    \quad\quad\quad\quad\ \ \ PyTorch, OpenCV, LaTeX, Verilog, FreeRTOS, Autodesk Inventor, SolidWorks, Rhino\\
-    \kern 5.0 pt%
-    \textbf{Hardware: }PCB Design and Assembly, Breadboarding, Computer Architecture, Oscilloscope, Multimeter, 3D-Printing\\ 
+    Electrical/Computer Engineer with interests in control systems and signal processing. Currently working on my master's thesis in an accelerated program at Virginia Tech.
     \section{Education}
     \begin{twocolentry}{{May 2025}\\\textit{Blacksburg, Virginia}}
         \textbf{Master of Science in Computer Engineering}\\
-        Virginia Tech -- Focused on Control Theory -- GPA: 3.8\\ 
+        Virginia Tech -- Focused on Control Theory -- GPA: 3.7/4.0\\ 
         \quad\quad\textit{Advisers: \hrefWithoutArrow{https://coolautonomylab.github.io/members/thinh.html}{{Dr.Thinh Doan (UT Austin)}} and \hrefWithoutArrow{https://filebox.ece.vt.edu/~mhsiao/}{{Dr.Michael Hsiao (Virginia Tech)}}}\\
     \end{twocolentry}
     \kern 5.0 pt%
     \begin{twocolentry}{{May 2024}\\\textit{Blacksburg, Virginia}}
         \textbf{Bachelor of Science in Electrical \& Computer Engineering} (double major)\\
-        Virginia Tech -- Control Systems and Machine Learning -- GPA: 3.7
+        Virginia Tech -- Control Systems and Machine Learning -- GPA: 3.7/4.0
     \end{twocolentry}
     
     \section{Technical Experience}
@@ -190,7 +184,7 @@
         \textbf{\textit{Virginia Tech \boldmath$\cdot$ Graduate Researcher}}\\
         \begin{onecolentry}
             \begin{highlights}
-                \item Undergraduate and graduate research developing neuro-symbolic algorithms with \hrefWithoutArrow{https://coolautonomylab.github.io/}{The C.O.O.L Autonomy Lab at The University of Texas at Austin.}
+                \item Undergraduate and graduate research developing neuro-symbolic algorithms with \hrefWithoutArrow{https://coolautonomylab.github.io/}{The C.O.O.L Autonomy Lab at UT Austin.}
                 \item Developing hardware for a 6-axis robot arm and software for a ROS2 simulation environment used to test custom Reinforcement Learning algorithms.
             \end{highlights}
         \end{onecolentry}
@@ -212,7 +206,7 @@
             \begin{highlights}
             \item Developed thrust vector control testing hardware and software as part of NASA's Active Inertial Load Simulator at the Marshall Space Flight Center.
             \item Characterized and created a model of an electro-mechanical actuator including internal viscous and (non-linear) coulomb friction components.
-            \item Derived control systems for load simulating actuators -- used to simulate external loads placed on the Mars Ascent Vehicle's thrust vector control actuators during flight. 
+            \item Derived control systems for a load simulating actuator, in Simulink -- used to simulate external loads placed on the Mars Ascent Vehicle's thrust vector control actuators during flight. 
             \item Designed and integrated a 3\textsuperscript{rd} order IIR filter to remove high frequency noise from a load cell and linear variable differential transformer (LVDT).
             \end{highlights}
         \end{onecolentry}
@@ -238,13 +232,18 @@
             \end{highlights}
         \end{onecolentry}
     \end{twocolentry}
+    \section{Skills}
+    \textbf{Software: }C/C++, Python, MATLAB, GNU/Linux, Simulink, Git, ROS2, Gazebo, Make, CMake, Labview, Qt,\\
+    \quad\quad\quad\quad\ \ \ PyTorch, OpenCV, LaTeX, Verilog, FreeRTOS, Autodesk Inventor, SolidWorks, Rhino\\
+    \kern 5.0 pt%
+    \textbf{Hardware: }PCB Design and Assembly, Breadboarding, Computer Architecture, Oscilloscope, Multimeter, 3D-Printing\\ 
     \section{Projects}
     \begin{twocolentry}{{Dec 2023 -- Present}\\}
         \textbf{FOC Stepper Motor} (\hrefWithoutArrow{https://github.com/hunterwellis}{github.com/hunterwellis})
         \begin{onecolentry}
             \begin{highlights}
-            \item Backdrivable stepper motor driver using FOC and a magnetic encoder for feedback
-            \item 4-layer PCB mounts to the back of the motor with CAN and power connections
+            \item Backdrivable stepper motor driver using FOC and a magnetic encoder for feedback.
+            \item 4-layer PCB mounts to the back of the motor with CAN and power connections.
             \end{highlights}
         \end{onecolentry}
     \end{twocolentry}
@@ -253,8 +252,8 @@
     \textbf{Computer Vision | OCR Capstone Project }(\hrefWithoutArrow{https://ece.vt.edu/content/dam/ece_vt_edu/S24-ECE-MDE-Brochure.pdf}{capstone\_brochure.pdf})
         \begin{onecolentry}
             \begin{highlights}
-            \item IOS application capable of detecting coins of interest/value
-            \item Trained OCR and ResNet-50 models on a dataset of real and augmented coin images
+            \item IOS application capable of detecting coins of interest/value.
+            \item Trained OCR and ResNet-50 models on a dataset of real and augmented coin images.
             \end{highlights}
         \end{onecolentry}
     \end{twocolentry}
@@ -263,8 +262,8 @@
         \textbf{Design Teams | Solar Car \& Human Powered Submarine }(\hrefWithoutArrow{https://solarcaratvt.org}{solarcaratvt.org})
         \begin{onecolentry}
             \begin{highlights}
-            \item Overall E/E architecture of the Solar Car
-            \item Single board computer and LCD to display relevant data to the submarine pilot 
+            \item Overall E/E architecture of the Solar Car.
+            \item Single board computer and LCD to display relevant data to the submarine pilot.
             \end{highlights}
         \end{onecolentry}
     \end{twocolentry}
